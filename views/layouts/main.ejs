@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= titulo %></title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Biblioteca - Sistema de Salas de Estudio</h1>
+    <% if (typeof seccion !== 'undefined') { %>
+      <span class="badge-seccion"><%= seccion %></span>
+    <% } %>
+    <nav>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/reservas">Listado de Reservas</a></li>
+        <li><a href="/reservas/nueva">Nueva Reserva</a></li>
+        <li><a href="/estado">Estado (JSON)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 - Biblioteca Central | ID de solicitud: <strong><%= typeof solicitudId !== 'undefined' ? solicitudId : 'N/A' %></strong></p>
+  </footer>
+</body>
+</html>

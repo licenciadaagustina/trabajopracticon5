@@ -1,0 +1,53 @@
+<section>
+  <h2>Registrar Nueva Reserva</h2>
+
+  <% if (error) { %>
+    <div role="alert" class="alerta-error">
+      <%= error %>
+    </div>
+  <% } %>
+
+  <form action="/reservas" method="POST" class="form-reserva">
+    <div>
+      <label for="estudiante">Nombre del estudiante:</label>
+      <input type="text" id="estudiante" name="estudiante" value="<%= valores.estudiante || '' %>" required>
+    </div>
+
+    <div>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" value="<%= valores.email || '' %>" required>
+    </div>
+
+    <div>
+      <label for="sala">Sala:</label>
+      <select id="sala" name="sala" required>
+        <option value="">Seleccione una sala</option>
+        <option value="Sala Norte" <%= valores.sala === 'Sala Norte' ? 'selected' : '' %>>Sala Norte</option>
+        <option value="Sala Sur" <%= valores.sala === 'Sala Sur' ? 'selected' : '' %>>Sala Sur</option>
+        <option value="Sala Multimedia" <%= valores.sala === 'Sala Multimedia' ? 'selected' : '' %>>Sala Multimedia</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" name="fecha" value="<%= valores.fecha || '' %>" required>
+    </div>
+
+    <div>
+      <label for="turno">Turno:</label>
+      <select id="turno" name="turno" required>
+        <option value="">Seleccione un turno</option>
+        <option value="Mañana" <%= valores.turno === 'Mañana' ? 'selected' : '' %>>Mañana</option>
+        <option value="Tarde" <%= valores.turno === 'Tarde' ? 'selected' : '' %>>Tarde</option>
+        <option value="Noche" <%= valores.turno === 'Noche' ? 'selected' : '' %>>Noche</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="personas">Cantidad de personas (1 a 6):</label>
+      <input type="number" id="personas" name="personas" min="1" max="6" value="<%= valores.personas || '' %>" required>
+    </div>
+
+    <button type="submit" class="btn">Guardar Reserva</button>
+  </form>
+</section>
